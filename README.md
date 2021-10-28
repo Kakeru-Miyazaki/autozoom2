@@ -35,6 +35,16 @@ press any other key to join the meeting
 書いてある通り，a を押して Enter を押すと URL を登録，
 d を押すと URL を削除，他のキーでミーティングに参加できます．
 
+### アイコンについて
+
+デスクトップの autozoom2 はあまりにも無骨なので，
+
+1. 右クリックして情報を見るを選択
+2. autozoom2/icon/icon.icns を左上の方にドラッグ&ドロップ
+   するとアイコンが変えられます．
+
+参考:https://support.apple.com/ja-jp/guide/mac-help/mchlp2313/mac
+
 ## 終わりに
 
 kakekakemiya による個人開発です．以前から自分用に作成して使っていたものを友達に見せたところ意外と好評だったので正式にリリースしようと思って作りました．(なので AUTOZOOM2 になっています．)
