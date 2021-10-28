@@ -1,0 +1,21 @@
+#!bin/bash
+function my_error() {
+    # エラー処理
+    echo
+    echo "Please put \"autozoom2\" folder below" $username "and try again."
+    sleep 5
+    exit 1
+}
+# rm -rf .git
+path1=`pwd`
+cd 
+path=`pwd`
+username=`python3 $path1/forinstall/getname.py "$path"`
+cd path1
+cd ..
+mv autozoom2 ~/
+cd ~/autozoom2 || my_error
+chmod +x autozoom2
+cp autozoom2 ~/Desktop/
+echo Welcome $username
+echo successfully installed

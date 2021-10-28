@@ -1,0 +1,2 @@
+Thu 0800 hoge https://yahoo.co.jp
+Thu 0945 hoge https://google.com
