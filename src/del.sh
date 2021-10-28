@@ -8,7 +8,8 @@ ret=$?
 if [ $? -lt 2 ];then
   python3 del.py $input > datatmp.txt
   grep -v -e '^\s*#' -e '^\s*$' datatmp.txt > data.txt
-  rm datatmp.txt
+  sort data.txt > datatmp.txt
+  mv datatmp.txt data.txt
   echo your meeting list is below
   cat -n data.txt
 else
