@@ -1,2 +1,0 @@
-Thu 0945 hoge https://google.com
-Thu 2200 hoge https://yahoo.co.jp
