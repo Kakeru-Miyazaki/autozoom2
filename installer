@@ -11,11 +11,11 @@ path1=`pwd`
 cd 
 path=`pwd`
 username=`python3 $path1/forinstall/getname.py "$path"`
-cd path1
+cd $path1
 cd ..
-mv autozoom2 ~/
+mv ./autozoom2 ~/
 cd ~/autozoom2 || my_error
-chmod +x autozoom2
-cp autozoom2 ~/Desktop/
+chmod +x ./src/autozoom2
+cp ./src/autozoom2 ~/Desktop/
 echo Welcome $username
 echo successfully installed
