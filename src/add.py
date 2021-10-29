@@ -104,7 +104,7 @@ def quit():
 
 
 button = tkinter.Button(root, text="quit", command=quit)
-button.grid(column=1, row=9)
+button.grid(column=0, row=9, sticky=tkinter.E)
 
 root.protocol("WM_DELETE_WINDOW", quit)
 root.mainloop()
