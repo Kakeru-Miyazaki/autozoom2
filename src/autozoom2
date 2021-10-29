@@ -1,12 +1,9 @@
 #!/bin/bash
 cd ~/autozoom2/src
-echo press \"a\" + \"Enter\" to add a URL
-echo press \"d\" + \"Enter\" to delete a URL
-echo press any other key to join the meeting
-read menu
-if test "$menu" = "a"  ; then
+menu=`python3 menu.py`
+if test "$menu" = "add"  ; then
   bash add.sh
-elif test "$menu" = "d"; then
+elif test "$menu" = "del"; then
   bash del.sh
 else
   bash main.sh

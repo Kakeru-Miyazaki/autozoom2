@@ -1,7 +1,20 @@
+# 関数を紐づけたボタンを配置
+# --------------------------
+
 import tkinter
 root = tkinter.Tk()
 root.title('AUTOZOOM2 --add URL--')
 root.geometry("800x400")
+
+
+# コンソールに"Button is clicked."を出力する関数
+
+
+def newtxt_func(dataset):
+  datafile = open("newtxt.txt", "w")
+  test = "ok?"
+  datafile.write(test)
+  datafile.close()
 
 
 class dataset:
@@ -56,27 +69,27 @@ def register():
 
 
 button = tkinter.Button(root, text="register", command=register)
-button.grid(column=0, row=9)
+button.grid(column=1, row=4)
 
-labelDay = tkinter.Label(text="the Day (Sun, Mon, Tue, Wed, Thu, Fri, Sat)")
-labelDay.grid(column=0, row=0, padx=5, pady=5, sticky=tkinter.W)
+labelDay = tkinter.Label(text="Day")
+labelDay.grid(column=0, row=0, padx=5, pady=10)
 inputDay = tkinter.Entry(width=40)
-inputDay.grid(column=0, row=1, sticky=tkinter.W)
+inputDay.grid(column=1, row=0)
 
-labelTime = tkinter.Label(text="the meeting time. (10-15 minute before of start is best. ex: 8:30 -> 0830, 13:07 -> 1307)")
-labelTime.grid(column=0, row=3, padx=5, pady=5, sticky=tkinter.W)
+labelTime = tkinter.Label(text="Time")
+labelTime.grid(column=0, row=1, padx=5, pady=10)
 inputTime = tkinter.Entry(width=40)
-inputTime.grid(column=0, row=4, sticky=tkinter.W)
+inputTime.grid(column=1, row=1)
 
-labelName = tkinter.Label(text="the meeting name")
-labelName.grid(column=0, row=5, padx=5, pady=5, sticky=tkinter.W)
+labelName = tkinter.Label(text="Name")
+labelName.grid(column=0, row=2, padx=5, pady=10)
 inputName = tkinter.Entry(width=40)
-inputName.grid(column=0, row=6, sticky=tkinter.W)
+inputName.grid(column=1, row=2)
 
-labelURL = tkinter.Label(text="the meeting URL")
-labelURL.grid(column=0, row=7, padx=5, pady=5, sticky=tkinter.W)
+labelURL = tkinter.Label(text="URL")
+labelURL.grid(column=0, row=3, padx=5, pady=10)
 inputUrl = tkinter.Entry(width=40)
-inputUrl.grid(column=0, row=8, sticky=tkinter.W)
+inputUrl.grid(column=1, row=3)
 
 
 root.mainloop()

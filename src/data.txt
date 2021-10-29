@@ -5,6 +5,7 @@ Fri 2200 hoge https://google.com
 Mon 0815 keisanron https://u-tokyo-ac-jp.zoom.us/j/86127249300?pwd=NzBNWkFZalUyeGlwQU5jbnBLN25WUT09
 Mon 1015 eizomediakougaku https://u-tokyo-ac-jp.zoom.us/j/89039650019?pwd=aXBQdTl2Z3ZEbllMZ0VQVEl2aDBrUT09
 Mon 1300 daikibo https://gather.town/app/9tF25KmnXaekHzyw/taulec
+Sat 0001 hoge https://yahoo.co.jp
 Sun 1600 hoge https://github.com/Kakeru-Miyazaki/autozoom_formac
 Thu 0815 jouhoutuushinkougaku https://u-tokyo-ac-jp.zoom.us/j/87841383467?pwd=OUVpMitVWlYzQy9qZ0RlckVLNXk0Zz09
 Thu 1015 humaninterface https://u-tokyo-ac-jp.zoom.us/j/87152876934?pwd=TXY0M2ltMnkwcis2WWpLWDVFT0UyZz09
