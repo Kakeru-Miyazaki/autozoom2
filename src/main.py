@@ -14,5 +14,5 @@ for row in file:
 if (ans[0] != "first"):
   print(ans[-1])
 else:
-  print("You have no meeting today.")
+  # print("You have no meeting today.")
   sys.exit(1)

@@ -1,0 +1,18 @@
+#!/bin/bash
+cd ~/autozoom2/src
+cat -n data.txt
+echo tell me the number you want to delete
+read input
+expr "$input" + 1 >&/dev/null
+ret=$?
+if [ $? -lt 2 ];then
+  python3 del.py > datatmp.txt
+  # python3 del.py $input > datatmp.txt
+  grep -v -e '^\s*#' -e '^\s*$' datatmp.txt > data.txt
+  sort data.txt > datatmp.txt
+  mv datatmp.txt data.txt
+  echo your meeting list is below
+  cat -n data.txt
+else
+  echo "$input is not a number"
+fi
