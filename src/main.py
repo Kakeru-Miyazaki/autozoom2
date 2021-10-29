@@ -11,8 +11,8 @@ for row in file:
   new = list(row.split())
   if ((new[0] == youbi or mydict[new[0]] == youbi) and int(new[1]) <= int(now)):
     ans = copy.copy(new)
+file.close()
 if (ans[0] != "first"):
   print(ans[-1])
 else:
-  # print("You have no meeting today.")
   sys.exit(1)

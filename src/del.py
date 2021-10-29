@@ -1,13 +1,13 @@
-import tkinter as tk
+import tkinter
 import tkinter.ttk as ttk
 from typing import Counter
 
 
-main_win = tk.Tk()
-main_win.title("AUTOZOOM2 --delete URL--")
-main_win.geometry("800x400")
+root = tkinter.Tk()
+root.title("AUTOZOOM2 --delete URL--")
+root.geometry("800x400")
 
-tree = ttk.Treeview(main_win)
+tree = ttk.Treeview(root)
 
 # 列を作成（３列）
 tree["columns"] = (1, 2, 3, 4)
@@ -33,23 +33,25 @@ for row in file:
   data.append(row)
   row = row.split()
   tree.insert("", "end", values=(str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
+file.close()
+
 tree.pack()
 
-vbar1 = ttk.Scrollbar(main_win, orient='v', command=tree.yview)
+vbar1 = ttk.Scrollbar(root, orient='v', command=tree.yview)
 
 tree.configure(yscrollcommand=vbar1.set)
 
-tree.pack(side=tk.LEFT)
+tree.pack(side=tkinter.LEFT)
 tree.place(x=15, y=40, height=200)
 
-vbar1.pack(side=tk.LEFT, fill=tk.Y)
+vbar1.pack(side=tkinter.LEFT, fill=tkinter.Y)
 vbar1.place(x=570, y=40, height=200)
 
 
-label = tk.Label(text="input the numbe you want to delete ->")
-label.grid(column=0, row=9, padx=5, pady=5, sticky=tk.E)
-toDel = tk.Entry(width=40)
-toDel.grid(column=1, row=9, sticky=tk.W)
+label = tkinter.Label(text="input the numbe you want to delete ->")
+label.grid(column=0, row=9, padx=5, pady=5, sticky=tkinter.E)
+toDel = tkinter.Entry(width=40)
+toDel.grid(column=1, row=9, sticky=tkinter.W)
 
 
 def run():
@@ -62,22 +64,20 @@ def run():
       if (counter == delnum):
         continue
       print(row)
-    main_win.destroy()
+    root.destroy()
 
 
-button = tk.Button(main_win, text="delete", command=run)
+def quit():
+  for row in data:
+    print(row)
+  root.destroy()
+
+
+button = tkinter.Button(root, text="delete", command=run)
 button.grid(column=2, row=9)
 
-main_win.mainloop()
+button = tkinter.Button(root, text="quit", command=quit)
+button.grid(column=3, row=9)
 
-
-# import sys
-# num = int(sys.argv[1])
-# fname = "data.txt"
-# file = open(fname, encoding='utf-8')
-# counter = 0
-# for row in file:
-#   counter += 1
-#   if (counter == num):
-#     continue
-#   print(row)
+root.protocol("WM_DELETE_WINDOW", quit)
+root.mainloop()
