@@ -18,7 +18,8 @@ AUTOZOOM2 は，クリックするだけでその曜日のその時間に入ら�
 
 ### インストール方法
 
-autozoom2 を任意の場所に落としてきて，autozoom2 ディレクトリにて`bash installer`とします．
+autozoom2 を任意の場所に落としてきて，installer をダブルクリックします．
+(実行できなければ，autozoom2 ディレクトリにて`bash installer`とします．)
 
 > home/autozoom2 にインストールされるので，奇跡的に別のディレクトリ autozoom2 という名でそこに配置している場合は削除されますので注意してください
 

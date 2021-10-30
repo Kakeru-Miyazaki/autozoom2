@@ -8,7 +8,6 @@ function my_error() {
 }
 # rm -rf .git
 path1=$(cd $(dirname $0);pwd)
-# path1=`pwd`
 cd 
 path=`pwd`
 username=`python3 $path1/forinstall/getname.py "$path"`
@@ -18,5 +17,10 @@ mv ./autozoom2 ~/
 cd ~/autozoom2 || my_error
 chmod +x ./src/autozoom2
 cp ./src/autozoom2 ~/Desktop/
+echo
+echo --------- AUTOZOOM2 ---------
 echo Welcome $username
 echo successfully installed
+echo -----------------------------
+echo
+echo
