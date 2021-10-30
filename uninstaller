@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ "$(uname)" == 'Darwin' ]; then
+  OS="Mac"
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  OS="Linux"
+else
+  echo "Your platform ($(uname -a)) is not supported."
+  exit 1
+fi
+
+cd ~
+rm -rf autozoom2
+if [ "$OS" = "Mac" ];then
+  rm ~/Desktop/autozoom2
+elif [ "$OS" = "Linux" ];then
+  rm ~/.local/share/applications/autozoom2.desktop
+fi
+
+echo "Thank you for using AUTOZOOM2"
+echo "This app was made by kakekakemiya"
