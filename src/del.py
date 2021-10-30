@@ -8,6 +8,9 @@ root.minsize(width=600, height=500)
 
 tree = ttk.Treeview(root)
 
+v = tkinter.StringVar()
+module_l = []
+
 # 列を作成（３列）
 tree["columns"] = (1, 2, 3, 4)
 # ヘッダーの設定
@@ -30,11 +33,13 @@ file = open(fname, encoding='utf-8')
 counter = 0
 data = []
 for row in file:
-    counter += 1
-    data.append(row)
-    row = row.split()
-    tree.insert("", "end", values=(
-        str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2:-1]))
+  counter += 1
+  module_l.append(counter)
+  data.append(row)
+  row = row.split()
+  tree.insert("", "end", values=(
+      str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2:-1]))
+
 file.close()
 
 # tree.pack()
@@ -48,37 +53,43 @@ s.configure('Treeview', rowheight=40)
 
 # tree.pack(side=tkinter.LEFT)
 tree.grid(column=0, row=1, columnspan=3, rowspan=30,
-          sticky=tkinter.W+tkinter.E+tkinter.N+tkinter.S)
+          sticky=tkinter.W + tkinter.E + tkinter.N + tkinter.S)
 # tree.place(x=15, y=40, height=200)
 
 # vbar1.pack(side=tkinter.LEFT, fill=tkinter.Y)
-vbar1.grid(column=4, row=1, rowspan=30, sticky=tkinter.E+tkinter.N+tkinter.S)
+vbar1.grid(column=4, row=1, rowspan=30, sticky=tkinter.E + tkinter.N + tkinter.S)
 # vbar1.place(x=570, y=40, height=200)
 
 
 label = tkinter.Label(text="input the number you want to delete ->")
 label.grid(column=0, row=0, padx=5, pady=5, sticky=tkinter.E)
 toDel = tkinter.Entry(width=40)
-toDel.grid(column=1, row=0, sticky=tkinter.W)
+# toDel.grid(column=1, row=0, sticky=tkinter.W)
+
+module = tuple(module_l)
+comboboxDel = ttk.Combobox(root, textvariable=v,
+                           values=module, width=10, style="office.TCombobox")
+comboboxDel.grid(column=1, row=0, sticky=tkinter.W, padx=10)
 
 
 def run():
-    global counter
-    if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
-        delnum = int(toDel.get())
-        counter = 0
-        for row in data:
-            counter += 1
-            if (counter == delnum):
-                continue
-            print(row)
-        root.destroy()
+  global counter
+#   if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
+  if int(comboboxDel.get()) and 1 <= int(comboboxDel.get()) <= counter:
+    delnum = int(comboboxDel.get())
+    counter = 0
+    for row in data:
+      counter += 1
+      if (counter == delnum):
+        continue
+      print(row)
+    root.destroy()
 
 
 def quit():
-    for row in data:
-        print(row)
-    root.destroy()
+  for row in data:
+    print(row)
+  root.destroy()
 
 
 button = tkinter.Button(root, text="delete", command=run)
