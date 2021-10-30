@@ -9,14 +9,14 @@ function my_error() {
 # rm -rf .git
 
 if [ "$(uname)" == 'Darwin' ]; then
-  OS='Mac'
+  OS="Mac"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  OS='Linux'
+  OS="Linux"
 else
   echo "Your platform ($(uname -a)) is not supported."
   exit 1
 fi
-
+echo your os is $OS
 path1=$(cd $(dirname $0);pwd)
 cd 
 path=`pwd`
@@ -25,13 +25,13 @@ cd $path1
 cd ..
 mv ./autozoom2 ~/
 cd ~/autozoom2 || my_error
-
 chmod +x ./src/autozoom2
 chmod +x ./forinstall/autozoom2.desktop
-if test "$OS"='Mac';then
-cp ./src/autozoom2 ~/Desktop/
-elif test "$OS"='Linux';then
-cp ./forinstall/autozoom2/autozoom2.desktop ~/.local/share/applications
+if [ "$OS" = "Mac" ];then
+  cp ./src/autozoom2 ~/Desktop/
+elif [ "$OS" = "Linux" ];then
+  sed -i -e "s/kakeru/$username/g" ./forinstall/autozoom2.desktop
+  cp ./forinstall/autozoom2.desktop ~/.local/share/applications
 fi
 
 if test $? -eq 0; then
