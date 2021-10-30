@@ -7,7 +7,8 @@ function my_error() {
     exit 1
 }
 # rm -rf .git
-path1=`pwd`
+path1=$(cd $(dirname $0);pwd)
+# path1=`pwd`
 cd 
 path=`pwd`
 username=`python3 $path1/forinstall/getname.py "$path"`
