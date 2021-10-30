@@ -18,7 +18,7 @@ else
 fi
 echo your os is $OS
 
-python -c "import tkinter;print(tkinter.TkVersion)"
+python3 -c "import tkinter;print(tkinter.TkVersion)"
 if test $? -eq 1; then
 echo "This App needs python3 and tkinter(from python). Please install them and retry."
 exit 1
