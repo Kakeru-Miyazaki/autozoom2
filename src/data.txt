@@ -1,2 +1,1 @@
-Sat 0705 hoge https://google.com
-Sun 0115 test hog
+Sat 1540 test https://google.com
