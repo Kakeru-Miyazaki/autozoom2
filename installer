@@ -29,8 +29,10 @@ cd
 path=`pwd`
 username=`python3 $path1/forinstall/getname.py "$path"`
 cd $path1
+dirname=`python3 $path1/forinstall/getdirname.py "$path1"`
 cd ..
-mv ./autozoom2* ~/autozoom2
+
+mv ./$dirname ~/autozoom2
 cd ~/autozoom2 || my_error
 chmod +x ./src/autozoom2
 chmod +x ./forinstall/autozoom2.desktop
