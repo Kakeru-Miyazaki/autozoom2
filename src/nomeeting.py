@@ -9,13 +9,13 @@ def quit():
 
 label1 = tkinter.Label(text="You have no meeting now.",
                        font=("", "32", "bold"))
-label1.grid(column=1, row=1, padx=20, pady=5)
+label1.grid(column=1, row=1, padx=190, pady=100)
 label2 = tkinter.Label(text="Take a coffee break :-)", font=("", "28", "bold"))
-label2.grid(column=1, row=2, padx=20, pady=10)
+label2.grid(column=1, row=2, padx=190, pady=10)
 
 
 button = tkinter.Button(root, text="OK", command=quit)
-button.grid(column=1, row=4)
+button.grid(column=1, row=4, pady=50)
 
 
 root.mainloop()

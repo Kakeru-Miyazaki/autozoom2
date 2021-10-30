@@ -4,7 +4,7 @@ from typing import Counter
 
 root = tkinter.Tk()
 root.title("AUTOZOOM2 --delete URL--")
-root.minsize(width=600, height=400)
+root.minsize(width=600, height=800)
 
 tree = ttk.Treeview(root)
 
@@ -22,62 +22,70 @@ tree.column(1, width=50)
 tree.column(2, width=50)
 tree.column(3, width=50)
 tree.column(4, width=400)
+
+
 # データ挿入
 fname = "data.txt"
 file = open(fname, encoding='utf-8')
 counter = 0
 data = []
 for row in file:
-  counter += 1
-  data.append(row)
-  row = row.split()
-  tree.insert("", "end", values=(
-      str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
+    counter += 1
+    data.append(row)
+    row = row.split()
+    tree.insert("", "end", values=(
+        str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
 file.close()
 
-tree.pack()
+# tree.pack()
 
 vbar1 = ttk.Scrollbar(root, orient='v', command=tree.yview)
 
 tree.configure(yscrollcommand=vbar1.set)
 
-tree.pack(side=tkinter.LEFT)
-tree.place(x=15, y=40, height=200)
+s = ttk.Style()
+s.configure('Treeview', rowheight=40)
 
-vbar1.pack(side=tkinter.LEFT, fill=tkinter.Y)
-vbar1.place(x=570, y=40, height=200)
+# tree.pack(side=tkinter.LEFT)
+tree.grid(column=0, row=1, columnspan=3, rowspan=30,
+          sticky=tkinter.W+tkinter.E+tkinter.N+tkinter.S)
+# tree.place(x=15, y=40, height=200)
+
+# vbar1.pack(side=tkinter.LEFT, fill=tkinter.Y)
+vbar1.grid(column=4, row=1, rowspan=30, sticky=tkinter.E+tkinter.N+tkinter.S)
+# vbar1.place(x=570, y=40, height=200)
 
 
 label = tkinter.Label(text="input the number you want to delete ->")
-label.grid(column=0, row=9, padx=5, pady=5, sticky=tkinter.E)
+label.grid(column=0, row=0, padx=5, pady=5, sticky=tkinter.E)
 toDel = tkinter.Entry(width=40)
-toDel.grid(column=1, row=9, sticky=tkinter.W)
+toDel.grid(column=1, row=0, sticky=tkinter.W)
 
 
 def run():
-  global counter
-  if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
-    delnum = int(toDel.get())
-    counter = 0
-    for row in data:
-      counter += 1
-      if (counter == delnum):
-        continue
-      print(row)
-    root.destroy()
+    global counter
+    if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
+        delnum = int(toDel.get())
+        counter = 0
+        for row in data:
+            counter += 1
+            if (counter == delnum):
+                continue
+            print(row)
+        root.destroy()
 
 
 def quit():
-  for row in data:
-    print(row)
-  root.destroy()
+    for row in data:
+        print(row)
+    root.destroy()
 
 
 button = tkinter.Button(root, text="delete", command=run)
-button.grid(column=2, row=9)
+button.grid(column=2, row=0)
 
 button = tkinter.Button(root, text="quit", command=quit)
-button.grid(column=3, row=9)
+button.grid(column=3, row=0)
 
 
 # root.grid_columnconfigure(0, weight=1)
