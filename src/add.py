@@ -5,54 +5,54 @@ root.title('AUTOZOOM2 --add URL--')
 
 
 class dataset:
-  def __init__(self):
-    self.day = "noinput"
-    self.time = "noinput"
-    self.name = "noinput"
-    self.url = "noinput"
+    def __init__(self):
+        self.day = "noinput"
+        self.time = "noinput"
+        self.name = "noinput"
+        self.url = "noinput"
 
-  def printData(self):
-    print(self.day, self.time, self.name, self.url)
+    def printData(self):
+        print(self.day, self.time, self.name, self.url)
 
-  def setDay(self, day):
-    self.day = day
+    def setDay(self, day):
+        self.day = day
 
-  def setTime(self, time):
-    self.time = time
+    def setTime(self, time):
+        self.time = time
 
-  def setName(self, name):
-    self.name = name
+    def setName(self, name):
+        self.name = name
 
-  def setUrl(self, url):
-    self.url = url
+    def setUrl(self, url):
+        self.url = url
 
 
 newData = dataset()
 
 
 def register():
-  flag = True
-  if comboboxDay.get() != "":
-    newData.setDay(comboboxDay.get())
-  else:
-    flag = False
-  if comboboxTimeHour.get() != "" and comboboxTimeMin != "":
-    newData.setTime(comboboxTimeHour.get() + comboboxTimeMin.get())
-  else:
-    flag = False
+    flag = True
+    if comboboxDay.get() != "":
+        newData.setDay(comboboxDay.get())
+    else:
+        flag = False
+    if comboboxTimeHour.get() != "" and comboboxTimeMin != "":
+        newData.setTime(comboboxTimeHour.get() + comboboxTimeMin.get())
+    else:
+        flag = False
 
-  if inputName.get() != "":
-    newData.setName(inputName.get())
-  else:
-    flag = False
+    if inputName.get() != "":
+        newData.setName(inputName.get())
+    else:
+        flag = False
 
-  if inputUrl.get() != "":
-    newData.setUrl(inputUrl.get())
-  else:
-    flag = False
-  if (flag):
-    newData.printData()
-    root.destroy()
+    if inputUrl.get() != "":
+        newData.setUrl(inputUrl.get())
+    else:
+        flag = False
+    if (flag):
+        newData.printData()
+        root.destroy()
 
 
 labelDay = tkinter.Label(text="the Day (Sun, Mon, Tue, Wed, Thu, Fri, Sat)")
@@ -99,7 +99,7 @@ button.grid(column=0, row=9)
 
 
 def quit():
-  root.destroy()
+    root.destroy()
 
 
 buttonQuit = tkinter.Button(root, text="quit", command=quit)

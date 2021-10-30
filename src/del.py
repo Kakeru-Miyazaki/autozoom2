@@ -34,7 +34,7 @@ for row in file:
     data.append(row)
     row = row.split()
     tree.insert("", "end", values=(
-        str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
+        str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2:-1]))
 file.close()
 
 # tree.pack()
