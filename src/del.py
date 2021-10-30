@@ -4,7 +4,7 @@ from typing import Counter
 
 root = tkinter.Tk()
 root.title("AUTOZOOM2 --delete URL--")
-root.minsize(width=600, height=800)
+root.minsize(width=600, height=500)
 
 tree = ttk.Treeview(root)
 
