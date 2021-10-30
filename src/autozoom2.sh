@@ -1,5 +1,6 @@
 #!/bin/bash
 cd ~/autozoom2/src
+# echo hoge 
 menu=`python3 menu.py`
 if test "$menu" = "add"; then
   bash add.sh

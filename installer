@@ -30,8 +30,12 @@ chmod +x ./forinstall/autozoom2.desktop
 if [ "$OS" = "Mac" ];then
   cp ./src/autozoom2 ~/Desktop/
 elif [ "$OS" = "Linux" ];then
-  sed -i -e "s/kakeru/$username/g" ./forinstall/autozoom2.desktop
-  cp ./forinstall/autozoom2.desktop ~/.local/share/applications
+  # sed -i -e "s/kakeru/$username/g" ./forinstall/autozoom2.desktop
+  # cp ./forinstall/autozoom2.desktop ~/.local/share/applications
+  sudo apt-get -y install python3-tk
+  echo alias autozoom2=\"bash ~/autozoom2/src/autozoom2\" >> ~/.bashrc
+  alias autozoom2="bash ~/autozoom2/src/autozoom2"
+  source ~/.bashrc
 fi
 
 if test $? -eq 0; then

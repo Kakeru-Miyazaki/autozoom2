@@ -1,14 +1,14 @@
 import tkinter
 root = tkinter.Tk()
 root.title('AUTOZOOM2 --add URL--')
-root.geometry("500x300")
 
 
 def quit():
-  root.destroy()
+    root.destroy()
 
 
-label1 = tkinter.Label(text="You have no meeting now.", font=("", "32", "bold"))
+label1 = tkinter.Label(text="You have no meeting now.",
+                       font=("", "32", "bold"))
 label1.grid(column=1, row=1, padx=20, pady=5)
 label2 = tkinter.Label(text="Take a coffee break :-)", font=("", "28", "bold"))
 label2.grid(column=1, row=2, padx=20, pady=10)

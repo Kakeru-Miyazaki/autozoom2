@@ -5,7 +5,6 @@ from typing import Counter
 
 root = tkinter.Tk()
 root.title("AUTOZOOM2 --delete URL--")
-root.geometry("800x400")
 
 tree = ttk.Treeview(root)
 
@@ -29,10 +28,11 @@ file = open(fname, encoding='utf-8')
 counter = 0
 data = []
 for row in file:
-  counter += 1
-  data.append(row)
-  row = row.split()
-  tree.insert("", "end", values=(str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
+    counter += 1
+    data.append(row)
+    row = row.split()
+    tree.insert("", "end", values=(
+        str(counter), row[0], row[1][0:2] + ":" + row[1][2:], row[2]))
 file.close()
 
 tree.pack()
@@ -55,22 +55,22 @@ toDel.grid(column=1, row=9, sticky=tkinter.W)
 
 
 def run():
-  global counter
-  if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
-    delnum = int(toDel.get())
-    counter = 0
-    for row in data:
-      counter += 1
-      if (counter == delnum):
-        continue
-      print(row)
-    root.destroy()
+    global counter
+    if int(toDel.get()) and 1 <= int(toDel.get()) <= counter:
+        delnum = int(toDel.get())
+        counter = 0
+        for row in data:
+            counter += 1
+            if (counter == delnum):
+                continue
+            print(row)
+        root.destroy()
 
 
 def quit():
-  for row in data:
-    print(row)
-  root.destroy()
+    for row in data:
+        print(row)
+    root.destroy()
 
 
 button = tkinter.Button(root, text="delete", command=run)
@@ -78,6 +78,24 @@ button.grid(column=2, row=9)
 
 button = tkinter.Button(root, text="quit", command=quit)
 button.grid(column=3, row=9)
+
+
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
+root.grid_columnconfigure(3, weight=1)
+root.grid_columnconfigure(4, weight=1)
+# root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(1, weight=1)
+root.grid_rowconfigure(2, weight=1)
+root.grid_rowconfigure(3, weight=1)
+root.grid_rowconfigure(4, weight=1)
+root.grid_rowconfigure(5, weight=1)
+root.grid_rowconfigure(6, weight=1)
+root.grid_rowconfigure(7, weight=1)
+root.grid_rowconfigure(8, weight=1)
+root.grid_rowconfigure(9, weight=1)
+
 
 root.protocol("WM_DELETE_WINDOW", quit)
 root.mainloop()
