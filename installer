@@ -7,6 +7,16 @@ function my_error() {
     exit 1
 }
 # rm -rf .git
+
+if [ "$(uname)" == 'Darwin' ]; then
+  OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  OS='Linux'
+else
+  echo "Your platform ($(uname -a)) is not supported."
+  exit 1
+fi
+echo $OS
 path1=$(cd $(dirname $0);pwd)
 cd 
 path=`pwd`
