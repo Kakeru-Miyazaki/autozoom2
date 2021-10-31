@@ -34,6 +34,7 @@ cd ..
 
 mv ./$dirname ~/autozoom2
 cd ~/autozoom2 || my_error
+touch ./src/data.txt
 chmod +x ./src/autozoom2
 chmod +x ./forinstall/autozoom2.desktop
 if [ "$OS" = "Mac" ];then
