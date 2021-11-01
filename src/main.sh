@@ -5,15 +5,16 @@ if [ "$(uname)" == 'Darwin' ]; then
   # "Mac"
   url=`python3 main.py $now` && open $url
   if test $? -eq 1; then
-  python3 nomeeting.py
-  bash autozoom2
+    python3 nomeeting.py
   fi
+  bash autozoom2
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # "Linux"
   url=`python3 main.py $now` && xdg-open $url
   if test $? -eq 1; then
-  python3 nomeeting.py
-  bash autozoom2
+    python3 nomeeting.py
+    bash autozoom2
   fi
-  sleep 60
+  sleep 5
+  bash autozoom2
 fi
