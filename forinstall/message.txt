@@ -1,0 +1,22 @@
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+Thank you for installing AUTOZOOM2.
+Select App type you like.
+
+> Type 1: AUTOZOOM2 with GUI (←Recommended)
+
+You can launch all mode in one App.
+But, you need to click for two times join the meeting.
+(to launch App and to select join mode)
+
+
+> Type 2: AUTOZOOM quick launch ver
+
+You need only one click to join the meeting.
+However, you need to do "autozoom2set" command int your terminal.
+So type 2 is suit for programmer.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+Please select type 1 or 2
