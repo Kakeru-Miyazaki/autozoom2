@@ -20,6 +20,19 @@ autozoom2 を任意の場所に落としてきて，installer をダブルクリ
 
 > home/autozoom2 にインストールされるので，別の自前ディレクトリを autozoom2 という名でそこに配置している場合は削除されますので注意してください
 
+このとき．アプリのタイプを聞かれます．お好きな方を洗濯してください．
+
+Type1:通常のAUTOZOOM2(推奨)
+アプリ起動時に，メニュー画面が開くタイプのものです．
+参加，URLの追加，削除が一つのアプリで完結できるので楽です．
+
+
+Type2:AUTOZOOM2 クイックver
+アプリ起動時に，強制的にZOOMミーティングに飛ばすタイプのものです．
+通常盤が2回クリックしないとZOOMに参加できないのに対し，こちらは一度でいいので時短になります．
+ただし，URLの編集が __autozoom2setコマンドになるので，ターミナルが使える必要があります．__
+
+
 ```
 Welcome "自分の名前"
 successfully installed
@@ -39,13 +52,22 @@ Mac だと，「開発元が不明なため開けません」というエラー�
 - https://support.apple.com/ja-jp/guide/mac-help/mh40616/mac
 - https://support.apple.com/ja-jp/guide/mac-help/mh40596/12.0/mac/12.0
 
-Mac にて，Operation not premitted と表示された場合は，Mac が Terminal へディスクフルアクセス権限を付与していないのが原因なので，
+    Mac にて，`Operation not premitted` と表示された場合は，Mac が Terminal へディスクフルアクセス権限を付与していないのが原因なので，
 
-1. システム環境設定を開く
-1. セキュリティとプライバシーを開く
-1. プライバシー欄からフルディスクアクセスをターミナルに許可する．
+    1. システム環境設定を開く
+    1. セキュリティとプライバシーを開く
+    1. プライバシー欄からフルディスクアクセスをターミナルに許可する．
 
-としてください．
+    としてください．
+
+### autozoom2ディレクトリの配置位置について
+
+基本，homeより下(sudoがなくとも編集できる範囲)であればどこに配置しても正常にインストールされるようにしたつもりなのですが，万が一怒られる場合は，homeディレクトリの直下においてください．
+
+`mv [autozoom2のパス] ~`とするとできます．
+Premission deniedと表示される場合はsudoをつけてください．
+
+(一応permission deniedの場合は，`sudo bash installer`とすればインストールできると思うのですが，私への信頼がないと怖いと思うので...)
 
 ## 使い方
 
@@ -55,11 +77,19 @@ autozoom2 を起動すると，
 - Join The Meeting
 - Delete URL
 
-と表示されると思います．
-書いてある通り，Add URL 　で ミーティング を登録，
-Delete URL で登録されたミーティング を削除，Join The Meeting でミーティングに参加できます．
+    と表示されると思います．
+    書いてある通り，Add URL 　で ミーティング を登録，
+    Delete URL で登録されたミーティング を削除，Join The Meeting でミーティングに参加できます．
 
-> Linux では，ターミナルにて`autozoom2`と入力することでも起動できます．
+    > Linux では，ターミナルにて`autozoom2`と入力することでも起動できます．
+
+    > Type2を選択した方は，OSを問わず`autozoom2`で起動でき`autozoom2set`でURLを編集することができます．
+
+    > コマンドが認識されていない場合は
+      * Macなら`source ~/.zshrc`
+      * Linuxなら`source ~/.bashrc`
+          としてください．認識されるはずです．
+
 
 ### Mac 用アイコンについて
 
