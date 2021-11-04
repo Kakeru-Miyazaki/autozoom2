@@ -1,11 +1,13 @@
 import tkinter
 import tkinter.ttk as ttk
 from typing import Counter
+from PIL import Image, ImageTk
 
 root = tkinter.Tk()
 root.title("AUTOZOOM2 --delete URL--")
 root.minsize(width=600, height=500)
-
+# bgcolor = "aquamarine1"
+# root.configure(bg=bgcolor)
 tree = ttk.Treeview(root)
 
 v = tkinter.StringVar()
@@ -52,7 +54,7 @@ s = ttk.Style()
 s.configure('Treeview', rowheight=40)
 
 # tree.pack(side=tkinter.LEFT)
-tree.grid(column=0, row=1, columnspan=3, rowspan=30,
+tree.grid(column=0, row=1, columnspan=3, rowspan=30, padx=15,
           sticky=tkinter.W + tkinter.E + tkinter.N + tkinter.S)
 # tree.place(x=15, y=40, height=200)
 
@@ -69,7 +71,7 @@ toDel = tkinter.Entry(width=40)
 module = tuple(module_l)
 comboboxDel = ttk.Combobox(root, textvariable=v,
                            values=module, width=10, style="office.TCombobox")
-comboboxDel.grid(column=1, row=0, sticky=tkinter.W, padx=10)
+comboboxDel.grid(column=1, row=0, sticky=tkinter.W)
 
 
 def run():
@@ -92,10 +94,23 @@ def quit():
   root.destroy()
 
 
-button = tkinter.Button(root, text="delete", command=run)
+pDel = "../icon/button/delete.png"
+pQuit = "../icon/button/quit.png"
+
+imageDel = Image.open(pDel)
+imageQuit = Image.open(pQuit)
+
+imageDel = imageDel.resize((90, 35))
+imageQuit = imageQuit.resize((90, 35))
+
+imageDel = ImageTk.PhotoImage(imageDel)
+imageQuit = ImageTk.PhotoImage(imageQuit)
+
+
+button = tkinter.Button(root, text="delete", command=run, image=imageDel)
 button.grid(column=2, row=0)
 
-button = tkinter.Button(root, text="quit", command=quit)
+button = tkinter.Button(root, text="quit", command=quit, image=imageQuit)
 button.grid(column=3, row=0)
 
 
